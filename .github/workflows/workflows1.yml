@@ -6,28 +6,18 @@ on:
   workflow_dispatch:
 
 jobs:
-    test:
-      runs-on: ubuntu-latest
-      steps:
-        - name: get the code
-          uses: actions/checkout@v3
-        - name: install dependancies 
-          run: npm ci
-        - name: lint
-          run: npx eslint --config /path/to/eslint.config.js .
-        - name: install depedancies
-          run: npm install eslint --save-dev
-
-        - name: install test depedancies
-          run: npx eslint --init
-        - name: test code
-          run: npm run test
-        - name: build code
-          run: npm run build
-        - name: Deploy code
-          run: echo "Deploying code"
-        
-           
-        
-    
-  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get the code
+        uses: actions/checkout@v3
+      - name: install dependencies 
+        run: npm ci
+      - name: lint
+        run: npx eslint .
+      - name: test code
+        run: npm run test
+      - name: build code
+        run: npm run build
+      - name: Deploy code
+        run: echo "Deploying code"
