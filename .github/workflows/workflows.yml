@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-    Deploy:
+    job-name-print-hello-world:
       runs-on: ubuntu-latest
       steps:
          - uses: actions/checkout@v3
