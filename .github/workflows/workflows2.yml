@@ -1,0 +1,45 @@
+name: My Second workflow
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+    lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: get the code
+          uses: actions/checkout@v3
+        - name: install dependancies 
+          run: npm ci
+        - name: lint
+          run: npm run lint
+
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: get the code
+          uses: actions/checkout@v3
+        - name: install dependancies 
+          run: npm ci
+        - name: test code
+          run: nmp run test
+
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: get the code
+          uses: actions/checkout@v3
+        - name: install dependancies 
+          run: npm ci         
+        - name: build code
+          run: npm run build
+        - name: Deploy code
+          run: echo "Deploying code"    
+        
+
+           
+        
+    
+  

@@ -1,0 +1,28 @@
+name: My first workflow
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: get the code
+          uses: actions/checkout@v3
+        - name: install dependancies 
+          run: npm ci
+        - name: lint
+          run: npm run lint
+        - name: test code
+          run: nmp run test
+        - name: build code
+          run: npm run build
+        - name: Deploy code
+          run: echo "Deploying code"
+        
+           
+        
+    
+  
