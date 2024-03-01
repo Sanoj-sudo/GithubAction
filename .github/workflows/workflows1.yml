@@ -17,6 +17,9 @@ jobs:
           run: npm init @eslint/config
         - name: install depedancies
           run: npm install eslint --save-dev
+
+        - name: install test depedancies
+          run: npx eslint --init
         - name: test code
           run: npm run test
         - name: build code
