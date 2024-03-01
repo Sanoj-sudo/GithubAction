@@ -24,7 +24,7 @@ jobs:
         - name: install dependancies 
           run: npm ci
         - name: test code
-          run: nmp run test
+          run: npm run test
 
     build:
       runs-on: ubuntu-latest
