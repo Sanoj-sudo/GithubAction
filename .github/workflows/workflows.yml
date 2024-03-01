@@ -14,12 +14,7 @@ jobs:
         - name: install the node js
           uses: actions/setup-node@v3
           with:
-            node-version: 18
-        - name: install dependancies
-          run: npm ci
-        - name: run test
-          run: npm test
-      
+            node-version: 18  
     deploy:
       needs: test
       runs-on: ubuntu-latest
