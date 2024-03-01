@@ -6,11 +6,34 @@ on:
   workflow_dispatch:
 
 jobs:
-    job-name-print-hello-world:
+    test:
       runs-on: ubuntu-latest
       steps:
-         - uses: actions/checkout@v3
-         - run: bash script.sh
+        - name: get the code
+          uses: actions/checkout@v3
+        - name: install the node js
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+        - name: install dependancies
+          run: npm ci
+        - name: run test
+          run: npm test
+      
+    deploy:
+      needs: test
+      runs-on: ubuntu-latest
+      steps:
+        - name: get the code
+          uses: actions/checkout@v3
+        - name: install the node js
+          uses: actions/setup-node@v3
+          with:
+            node-version: 16
+        - name: install dependancies
+          run: npm ci
+        
+           
         
     
   
